@@ -1,7 +1,0 @@
-mutation DevSessionUpdate($appId: String!, $assetsUrl: String!) {
-  devSessionUpdate(appId: $appId, assetsUrl: $assetsUrl) {
-    userErrors {
-      message
-    }
-  }
-}

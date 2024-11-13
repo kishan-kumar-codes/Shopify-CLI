@@ -1,15 +1,28 @@
 {
-    "extends": "./configurations/tsconfig.json",
-    "include": [],
-    "references": [
-      {"path": "./packages/cli"},
-      {"path": "./packages/app"},
-      {"path": "./packages/theme"},
-      {"path": "./packages/cli-kit"},
-      {"path": "./packages/create-app"},
-      {"path": "./packages/ui-extensions-server-kit"},
-      {"path": "./packages/ui-extensions-test-utils"},
-      {"path": "./packages/plugin-cloudflare"},
-      {"path": "./packages/plugin-did-you-mean"}
+  "compilerOptions": {
+    "target": "es2015",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "noUncheckedIndexedAccess": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
     ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
