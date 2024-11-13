@@ -1,0 +1,39 @@
+name: changeset
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - stable/3.*
+
+concurrency:
+  group: changeset-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+env:
+  PNPM_VERSION: '8.15.7'
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        # This makes Actions fetch all Git history so that Changesets can generate changelogs with the correct commits
+        with:
+          fetch-depth: 1
+      - name: Setup deps
+        uses: ./.github/actions/setup-cli-deps
+        with:
+          node-version: 18.20.3
+      - name: Create Release Pull Request
+        uses: Wandalen/wretry.action@e6cf3db7de3777ba5f999f903c2f4efdd9ac7288 # pin@v1.0.36
+        with:
+          action: changesets/action@e9cc34b540dd3ad1b030c57fd97269e8f6ad905a # pin@v1
+          attempt_limit: 3
+          attempt_delay: 2000
+          with: |
+            version: pnpm changeset-manifests
+            title: Version Packages - ${{ github.ref_name }}
