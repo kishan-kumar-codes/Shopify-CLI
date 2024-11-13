@@ -1,0 +1,41 @@
+
+.Intro {
+  height: 5.6rem;
+  padding: 2.2rem 1.8rem 1.5rem;
+  line-height: 1.6rem;
+  color: 1px solid var(--dc-color-grey-100);
+  border-bottom: 1px solid var(--dc-color-grey-600);
+}
+
+.ExtensionList {
+  width: 100%;
+  overflow: auto;
+  flex: 1;
+
+  table {
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th {
+    vertical-align: middle;
+  }
+}
+
+.WithIcon {
+  display: inline-grid;
+  grid-template-columns: auto auto;
+  grid-gap: 6px;
+}
+
+.Empty {
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.ActionGroup {
+  display: flex;
+  justify-content: flex-end;
+}

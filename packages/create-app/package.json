@@ -1,0 +1,95 @@
+{
+  "name": "@shopify/create-app",
+  "version": "3.70.0",
+  "private": false,
+  "description": "A CLI tool to create a new Shopify app.",
+  "keywords": [
+    "shopify",
+    "shopify-cli",
+    "shopify-partners",
+    "shopify-apps"
+  ],
+  "bugs": {
+    "url": "https://github.com/Shopify/cli/issues/new/choose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shopify/cli.git",
+    "directory": "packages/create-app"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    "./commands/*": {
+      "import": "./dist/commands/*.js",
+      "require": "./dist/commands/*.d.ts"
+    },
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "bin": {
+    "create-app": "./bin/run.js"
+  },
+  "files": [
+    "/bin/run.js",
+    "/bin/run.cmd",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "scripts": {
+    "build": "nx build",
+    "bundle": "nx bundle",
+    "clean": "nx clean",
+    "lint": "nx lint",
+    "lint:fix": "nx lint:fix",
+    "prepack": "cross-env NODE_ENV=production node ../../bin/update-bugsnag create-app && cp ../../README.md README.md",
+    "test": "nx run create-app:test",
+    "test:watch": "nx test:watch",
+    "type-check": "nx type-check"
+  },
+  "eslintConfig": {
+    "extends": [
+      "../../.eslintrc.cjs"
+    ]
+  },
+  "dependencies": {
+    "esbuild": "0.19.8"
+  },
+  "devDependencies": {
+    "@shopify/cli-kit": "3.70.0",
+    "@shopify/app": "3.70.0",
+    "@types/node": "18.19.3",
+    "esbuild-plugin-copy": "^2.1.1",
+    "@vitest/coverage-istanbul": "^1.6.0"
+  },
+  "engines": {
+    "node": "^18.20.0 || >=20.10.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
+  "publishConfig": {
+    "@shopify:registry": "https://registry.npmjs.org",
+    "access": "public"
+  },
+  "engine-strict": true,
+  "oclif": {
+    "bin": "create-app",
+    "commands": {
+      "strategy": "explicit",
+      "target": "./dist/index.js",
+      "identifier": "COMMANDS"
+    },
+    "additionalHelpFlags": [
+      "-h"
+    ],
+    "hooks": {
+      "prerun": "./dist/hooks/prerun.js",
+      "postrun": "./dist/hooks/postrun.js"
+    }
+  }
+}
