@@ -1,6 +1,0 @@
-query UserInfo {
-  currentUserAccount {
-    uuid
-    email
-  }
-}

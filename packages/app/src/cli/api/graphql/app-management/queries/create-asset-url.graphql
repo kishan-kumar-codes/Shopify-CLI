@@ -1,9 +1,0 @@
-mutation CreateAssetURL {
-  appRequestSourceUploadUrl {
-    sourceUploadUrl
-    userErrors {
-      field
-      message
-    }
-  }
-}

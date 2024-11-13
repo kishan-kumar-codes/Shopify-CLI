@@ -1,42 +1,9 @@
 {
-  "javascript.validate.enable": false,
-  "css.validate": false,
-  "scss.validate": false,
-  "typescript.tsdk": "./node_modules/typescript/lib",
-  "files.exclude": {
-    ".dev": true,
-    ".history/**": true,
-    ".vscode/symbols.json": true,
-    "*.log": true,
-    "**/.DS_Store": true,
-    "**/.git": true,
-    "**/.hg": true,
-    "**/.svn": true,
-    "**/node_modules/**": true,
-    "node_modules": true
-  },
-  "files.insertFinalNewline": true,
-  "files.trimTrailingWhitespace": true,
-  "search.exclude": {
-    "**/node_modules": true
-  },
-  "editor.formatOnSave": false,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript"],
-  "[javascript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  },
-  "eslint.workingDirectories": [{ "pattern": "packages/*" }],
-  "vitest.enable": true,
-  "testing.automaticallyOpenPeekView": "never",
-  "javascript.preferences.importModuleSpecifierEnding": "js",
-  "typescript.preferences.importModuleSpecifierEnding": "js",
-  "vitest.nodeEnv": {"VITEST_SKIP_TIMEOUT": "1"}
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit",
+    "source.sortMembers": "explicit"
+  }
 }

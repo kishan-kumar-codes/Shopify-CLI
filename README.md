@@ -1,74 +1,56 @@
-<img src="https://github.com/Shopify/cli/blob/main/assets/logo.png?raw=true" width="150"/>
+//This is my recent project
+# Next.js Commerce
 
-# Shopify CLI
-<a href="http://twitter.com/ShopifyDevs"><img src="https://img.shields.io/twitter/follow/ShopifyDevs?style=flat-square" alt="Twitter Followers"></a>
-<img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License">
-<a href="https://github.com/Shopify/cli/actions/workflows/shopify-cli.yml">![badge](https://github.com/Shopify/cli/actions/workflows/shopify-cli.yml/badge.svg)</a>
+A high-perfomance, server-rendered Next.js App Router ecommerce application.
 
-With the Shopify command line interface (Shopify CLI 3.0), you can:
-- initialize, build, dev, and deploy Shopify apps, extensions, functions and themes
-- build custom storefronts and manage their hosting
+This template uses React Server Components, Server Actions, `Suspense`, `useOptimistic`, and more.
 
-Learn more in the [commands docs](./packages/cli/README.md#commands).
+<h3 id="v1-note"></h3>
 
-<p>&nbsp;</p>
+Vercel is happy to partner and work with any commerce provider to help them get a similar template up and running and listed below. Alternative providers should be able to fork this repository and swap out the `lib/shopify` file with their own implementation while leaving the rest of the template mostly unchanged.
 
-### Before you begin ###
+- Shopify (this repository)
 
-Install the latest version of  [Node.js](https://nodejs.org/en/download/) and [npm](https://docs.npmjs.com/getting-started) (or another package manager of your choice).
+> Note: Providers, if you are looking to use similar products for your demo, you can [download these assets]
 
-<p>&nbsp;</p>
+## Integrations
 
-## Developing apps with Shopify CLI
+Integrations enable upgraded or additional functionality for Next.js Commerce
 
-When you’re building a Shopify app, you can initialize your project using your preferred package manager. A single command will install all the dependencies you need — including Shopify CLI itself.
+- [Orama]
+  - Upgrades search to include typeahead with dynamic re-rendering, vector-based similarity search, and JS-based configuration.
+  - Search runs entirely in the browser for smaller catalogs or on a CDN for larger.
 
-Initialize your project using one of the following commands:
-- `npm init @shopify/app@latest` (installed by default with Node)
-- `pnpm create @shopify/create-app@latest`
-- `yarn create @shopify/app`
-- `bun create @shopify/app@latest` (experimental)
+- [React Bricks]
+  - Edit pages, product details, and footer content visually using [React Bricks](https://www.reactbricks.com) visual headless CMS.
 
-Learn more in the docs: [Create an app](https://shopify.dev/apps/getting-started/create)
+## Running locally
 
-<p>&nbsp;</p>
+You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js Commerce. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/concepts/projects/environment-variables) for this, but a `.env` file is all that is necessary.
 
-## Developing themes with Shopify CLI
+> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control your Shopify store.
 
-To work with themes, the CLI needs to be installed globally with:
+1. Install Vercel CLI: `npm i -g vercel`
+2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
+3. Download your environment variables: `vercel env pull`
 
-- `npm install -g @shopify/cli @shopify/theme`
+```bash
+pnpm install
+pnpm dev
+```
 
-You can also use do it through Homebrew on macOS: `brew tap shopify/shopify && brew install shopify-cli`
+Your app should now be running on [localhost:3000](http://localhost:3000/).
 
-Learn more in the docs: [Shopify CLI for themes](https://shopify.dev/docs/themes/tools/cli)
+<details>
+  <summary>Expand if you work at Vercel and want to run locally and / or contribute</summary>
 
-<p>&nbsp;</p>
+1. Run `vc link`.
+1. Select the `Vercel Solutions` scope.
+1. Connect to the existing `commerce-shopify` project.
+1. Run `vc env pull` to get environment variables.
+1. Run `pnpm dev` to ensure everything is working correctly.
+</details>
 
-## Developing Hydrogen custom storefronts with Shopify CLI ##
+## Vercel, Next.js Commerce, and Shopify Integration Guide
 
-The Hydrogen code lives here: https://github.com/Shopify/hydrogen/tree/main/packages/cli
-
-Learn more in the docs: [Shopify CLI for Hydrogen storefronts](https://shopify.dev/docs/custom-storefronts/hydrogen/cli)
-
-<p>&nbsp;</p>
-
-## Help 🖐
-
-If you encounter issues using the CLI or have feedback you'd like to share with us, below are some options:
-
-- [Open a GitHub issue](https://github.com/Shopify/cli/issues) - To report bugs or request new features, open an issue in the Shopify CLI repository
-- [Shopify Community Forums](https://community.shopify.com/) - Visit our forums to connect with the community and learn more about Shopify CLI development
-- [CLI Documentation - Apps](https://shopify.dev/apps/tools/cli) - To view CLI documentation for app development
-- [CLI Documentation - Themes](https://shopify.dev/themes/tools/cli) - To view CLI documentation for theme development
-- [CLI Documentation - Hydrogen](https://shopify.dev/custom-storefronts/tools/cli) - To view CLI documentation for Hydrogen (custom storefront) development
-
-## Contribute 👩🏽‍💻
-
-If you'd like to contribute to the project, check out the [contributors docs](/docs) and the [steps to get started](/docs/cli/get-started.md).
-
-<p>&nbsp;</p>
-
-## References
-
-- [oclif](https://oclif.io/)
+You can use this comprehensive [integration guide] with step-by-step instructions on how to configure Shopify as a headless CMS using Next.js Commerce as your headless Shopify storefront on Vercel.

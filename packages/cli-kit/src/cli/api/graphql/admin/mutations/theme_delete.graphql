@@ -1,9 +1,0 @@
-mutation themeDelete($id: ID!) {
-  themeDelete(id: $id) {
-    deletedThemeId
-    userErrors {
-      field
-      message
-    }
-  }
-}
